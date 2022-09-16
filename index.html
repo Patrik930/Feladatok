@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy</title>
+    <style>
+        .container {
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            padding:10px;
+            font-size:4rem;
+            border-radius: 10px;
+            border-color: lime;
+            box-shadow: 5px 5px 3px lime;
+            cursor: pointer;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="changeEmoji()">Are you happy? <span>😊</span></button>
+    </div>
+
+
+    <script>
+        function changeEmoji(){
+            console.log("Klikk")
+            let fej=document.querySelector('span').innerHTML= fej == '😊' ?  '😔' : '😊'
+            console.log(fej)
+        }
+    </script>
+</body>
+</html>
