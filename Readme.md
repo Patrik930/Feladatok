@@ -6,4 +6,4 @@ Helyi repó létrehozása:
 - git status
 - git add .
 - git commit -m "first commit"
--git status
+- git status
