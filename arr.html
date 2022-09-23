@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tömbök</title>
+</head>
+
+<body>
+
+    <ul>Joe</ul>
+
+    <ol>Biden</ol>
+
+
+    <script>
+
+        let szamok = [11, 52, 66, 3, 8, 9, 1]
+        //a tömb hossza:
+        console.log(`A tömb hossza: ${szamok.length}`)
+        console.log(`Az első elem a tömbben: ${szamok[0]}`)
+        let utolsoIndex = szamok.length - 1
+        console.log(`A tömb legutolsó eleme: ${szamok[utolsoIndex]}`)
+
+        for (let i = 0; i < szamok.length; i++) {
+            console.log(` index: ${i} - érték ${szamok[i]}`)
+        }
+
+        //for-in
+        for (let i in szamok) {
+            console.log(` index: ${i} - érték ${szamok[i]}`)
+        }
+
+        //for of
+        for (let item of szamok) {
+            console.log(`for of - értékek: ${item}`)
+        }
+
+        //olvassuk ki az ul belesejét
+
+        let ulObj = document.querySelector('ul') //ez egy objektumm a DOM-ból
+        console.log(ulObj.innerHTML) // tartalma
+        //felülírjuk a tartalmát:
+        let li5tr = ""
+        for (let item of szamok) {
+            li5tr += `<li>${item}</li>`
+        }
+        console.log(li5tr)
+        ulObj.innerHTML = li5tr
+
+
+        let nevek = ["Joe", "Sanyi", "Józsi", "István", "Gyula"]
+        let olObj = document.querySelector('ol')
+
+        let joe = ""
+        for (let item of nevek) {
+            joe += `<li>${item}</li>`
+        }
+            olObj.innerHTML = joe
+        
+
+    </script>
+</body>
+
+</html>
