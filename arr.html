@@ -60,6 +60,18 @@
         }
             olObj.innerHTML = joe
         
+        //adjunk hozzá a tömbhöz elemket:
+        szamok.push(10000)
+        console.log(szamok)
+        //spread operátor:
+        szamok = [...szamok,1250]
+        console.log(szamok)
+        let s2=[1,2,3]
+        //összefűzés
+        let ujtomb=[...szamok,...s2]
+        console.log(ujtomb)
+        
+
 
     </script>
 </body>
