@@ -18,6 +18,12 @@
     <script>
 
         let szamok = [11, 52, 66, 3, 8, 9, 1]
+
+        //at függvény használata
+        console.log("at fg-el az utolsó elem:",szamok.at(-1))
+        //at fg. stringeknél
+        let user="Gyula"
+        console.log("Első es utolsó karakterek",user.at(0,"-",user.at(-1)))
         //a tömb hossza:
         console.log(`A tömb hossza: ${szamok.length}`)
         console.log(`Az első elem a tömbben: ${szamok[0]}`)
@@ -70,6 +76,8 @@
         //összefűzés
         let ujtomb=[...szamok,...s2]
         console.log(ujtomb)
+
+
         
 
 

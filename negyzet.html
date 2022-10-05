@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Négyzet</title>
+</head>
+<body>
+    <div class="container">
+        <input id="szam1" type="number">
+        <input type="button" onclick="szamol()" value="Számol" >
+    </div>
+
+    <div id = "joe"></div>
+
+    <script>
+        function szamol() {
+            let szam1 = +document.querySelector('#szam1').value
+            let eredmeny = szam1*szam1
+            document.querySelector('#joe').innerHTML = eredmeny
+        }
+    </script>
+
+
+</body>
+</html>
