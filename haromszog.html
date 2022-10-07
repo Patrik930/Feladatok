@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Háromszög</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <input id="a" type="number">
+            <input id="b" type="number">
+            <input id="c" type="number">
+            <input type="button" onclick="szamol()" value="Számol" >
+        </div>
+    </div>
+
+    <div id = "joe"></div>
+
+
+<script>
+    function szamol(){
+        let a =+document.querySelector("#a").value
+        let b =+document.querySelector("#b").value
+        let c =+document.querySelector("#c").value
+        console.log(typeof a)
+        if (a<(b+c) & b<(a+c) & c<(a+b)){
+            document.querySelector('#joe').innerHTML="Szerkeszthető a háromszög"
+        }else{
+            document.querySelector('#joe').innerHTML="Nem szerkeszthető a háromszög."
+        }
+    }
+</script>
+
+
+</body>
+</html>
