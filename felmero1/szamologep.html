@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Számológép</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="d-flex justify-content-center">Egyszerű számológép</h1>
+        <input id = "a" type="number" placeholder="Add meg az egyik számot" value="">
+        <input  id="b" type="number" placeholder="Add meg a másik számot" value="">
+        <input class="btn btn-primary" type="button" onclick="osszeadas()" value="+" >
+        <input class="btn btn-primary" type="button" onclick="kivonas()" value="-" >
+        <input  class="btn btn-primary"  type="button" onclick="osztas()" value="/" >
+        <input   class="btn btn-primary" type="button" onclick="szorzas()" value="*" >
+
+        <div class="border border-rounded" id="eredmeny"></div>
+
+        <script>
+            function osszeadas(){
+                let a = +document.getElementById("a").value
+                let b = +document.getElementById("b").value
+                let osszeadasE = a+b
+                document.getElementById("eredmeny").innerHTML =`Az összeadás eredménye: ${osszeadasE}`
+            }
+            function kivonas(){
+                let a = +document.getElementById("a").value
+                let b = +document.getElementById("b").value
+                let kivonasE = a-b
+                document.getElementById("eredmeny").innerHTML =`A kivonás eredménye: ${kivonasE}`
+            }
+            function osztas(){
+                let a = +document.getElementById("a").value
+                let b = +document.getElementById("b").value
+                let osztasE = a/b
+                document.getElementById("eredmeny").innerHTML =`Az osztás eredménye: ${osztasE}`
+            }
+            function szorzas(){
+                let a = +document.getElementById("a").value
+                let b = +document.getElementById("b").value
+                let szorzasE = a*b
+                document.getElementById("eredmeny").innerHTML =`A szorzás eredménye: ${szorzasE}`
+            }
+        </script>
+    </div>
+</body>
+</html>

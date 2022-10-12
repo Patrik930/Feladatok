@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téglalap</title>
+</head>
+<body>
+    <div class="container">
+        <input id="a" type="number" value="" placeholder="Add meg a téglalap hosszát" >
+        <input id="b" type="number" value="" placeholder="Add meg a téglalap szélességét">
+        <input type="button" onclick="szamol()" value="Számol" >
+    </div>
+
+        <div id="terulet"></div>
+        <div id="kerulet"></div>
+
+    <script>
+        function szamol() {
+            let a = +document.getElementById("a").value
+            let b = +document.getElementById("b").value
+            let terulet = a*b
+            let kerulet = 2*(a+b)
+            document.getElementById("terulet").innerHTML= `A téglalap területe: ${terulet}`
+            document.getElementById("kerulet").innerHTML= `A téglalap kerülete: ${kerulet}`
+        }
+    </script>
+
+</body>
+</html>
