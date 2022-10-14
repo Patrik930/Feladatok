@@ -11,19 +11,21 @@
 <body>
     <div class="container">
         <img id="fold" src="fold.jpg" alt="">
-
-        <div id="image"></div>
         <input type="button" onclick="cserel()" value="Cserél">
     </div>
 
 
     <script>
+
+        console.log(document.querySelector('#fold').src)
+
         function cserel() {
-            if (document.getElementById("image").src == "fold.jpg") 
-        {
-        document.getElementById("image").src = "mars.jpg";    
+        if(document.querySelector('#fold').src == 'file:///D:/11_RP/Feladatok/felmero1/fold.jpg'){
+            document.querySelector('#fold').src = "mars.jpg";
+        }else{
+            document.querySelector('#fold').src = "fold.jpg";
         }
-        }
+    }   
     </script>
     </div>
 </body>
