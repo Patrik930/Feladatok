@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul></ul>
+    <ol></ol>
+    
+    <script>
+        //tömb ami objektumokat tartalmaz
+        const users=[
+            {
+                name: 'John',
+                email: "john@gmail.com",
+                year: 2002
+            },{
+                name: 'Gyula',
+                email: "gyula@gmail.com",
+                year: 2001
+            },{
+                name: 'Peti',
+                email: "peti@gmail.com",
+                year: 2003
+            },{
+                name: 'Tomi',
+                email: "tomi@gmail.com",
+                year: 2002
+            }
+        ]
+            //for of
+        let liStr=''
+        for (let obj of users){
+            console.log(obj.name)
+            liStr+=`<li>${obj.name}</li>`
+        }
+        document.querySelector('ul').innerHTML = liStr
+
+        let olStr=''
+        for (let obj of users){
+            console.log(obj.email)
+            olStr+=`<li>${obj.email}</li>`
+        }
+        document.querySelector('ol').innerHTML = olStr
+
+    </script>
+
+</body>
+</html>
