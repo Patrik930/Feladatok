@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <input id="a" type="number">
+            <input id="b" type="number">
+            <input id="osszeg" type="number">
+            <input id="eredmeny" type="text"></input>
+            <img id="joe" src="var.gif" alt="">
+            <input type="button" onclick="ok()" value="Ok">
+            <input type="button" onclick="uj()" value="Új">
+        </div>
+    </div>
+
+
+    <script>
+        
+        function ok(){
+            let szam1 = +document.getElementById("a").value
+            let szam2 = +document.getElementById("b").value
+            let osszeg = document.getElementById("osszeg").value
+            if(szam1 + szam2 == osszeg){
+                document.getElementById("eredmeny").value = "Ügyes"
+                document.getElementById("joe").src = "igen.gif"
+
+            }else{
+                document.getElementById("eredmeny").value = "Buta"
+                document.getElementById("joe").src = "nem.gif"
+            }
+        }
+
+        function uj(){
+            let random1 =+ Math.floor(Math.random()*99)+1
+            let random2 =+ Math.floor(Math.random()*99)+1
+            document.getElementById("a").value = random1
+            document.getElementById("b").value = random2
+            document.getElementById("joe").src = "var.gif"
+            document.getElementById("osszeg").value = ""
+            document.getElementById("eredmeny").value = ""
+        }
+    </script>
+
+</body>
+
+</html>
