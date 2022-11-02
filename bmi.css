@@ -1,0 +1,19 @@
+h1{
+    color: blue;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+button{
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
