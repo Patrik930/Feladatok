@@ -25,17 +25,17 @@
             <div class="m-2">
                 <div class="row border-bottom border-dark bg-white align-items-center justify-content-between p-1">
                     <i type="button" class=" joe fa-regular fa-circle-check"></i>
-                    <p class= "h-100 d-flex">vásárlás</p>
+                    <span class= "h-100 d-flex">vásárlás</span>
                     <i type="button" class=" joe2 fa-solid fa-trash-can"></i>
                 </div>
                 <div class="row border-bottom border-dark bg-white align-items-center justify-content-between p-1">
                     <i type="button" class=" joe fa-regular fa-circle-check"></i>
-                    <p class=" ">tankolás</p>
+                    <span class=" ">tankolás</span>
                     <i type="button" class=" joe2 fa-solid fa-trash-can"></i>
                 </div>
                 <div class="row bg-white align-items-center justify-content-between p-1">
                     <i type="button" class=" joe fa-regular fa-circle-check"></i>
-                    <p class=" ">film</p>
+                    <span class=" ">film</span>
                     <i type="button" class="  joe2 fa-solid fa-trash-can"></i>
                 </div>
             </div>
@@ -44,10 +44,37 @@
 
 
     </div>
-
+    <p>For-of ciklussal</p>
+    <ul id="test"></ul>
+    <p>Map fügvénnyel</p>
+    <ul id="test2"></ul>
+    <p>Filter</p>
 
     <script>
-        const valami=["vásárlás","tankolás","film"]
+        let todosArray=["vásárlás","tankolás","film","edzés"]
+
+        //for of ciklussal
+        let str=""
+
+        for(let todo of todosArray){
+            console.log(todo)
+            str+=`<li>${todo}</li>`
+        }
+        console.log(str)
+        document.getElementById('test').innerHTML = str
+
+        //map tömbfügvénnyel
+        document.getElementById('test2').innerHTML = todosArray.map(todo=>`<li>${todo}</li>`).join('')
+
+        //szűrjük meg a tömböt: ne legyen benne a film
+        let newArray =todosArray.filter(todo=>todo !="film")
+        console.log(newArray)
+        //írjuk felül a régit:
+        todosArray = newArray
+        //csak az "edzés" legyen az új tömmben:
+        let newArray2 =todosArray.filter(todo=>todo=="edzés")
+        console.log(newArray2)
+
     </script>
 </body>
 
