@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Osztályok</title>
+</head>
+
+<body>
+    <h1>Kockadobás 3 kockával</h1>
+
+    <h4>Add meg a dobások számát:</h4>
+    <input type="text" id="adat">
+    <input type="submit" value="Next" onclick="joe()">
+
+    <div class="dice-holder row justify-content-center"></div>
+
+
+    <script>
+
+        let tomb = ['null', 'one', 'two', 'three', 'four', 'five', 'six']
+
+        class Dobas {
+            constructor(szam1, szam2, szam3) {
+                this.szam1 = szam1
+                this.szam2 = szam2
+                this.szam3 = szam3
+            }
+            maxSzam() {
+                return Math.max(...[this.szam1, this.szam2, this.szam3])
+            }
+            minSzam() {
+                return Math.min(...[this.szam1, this.szam2, this.szam3])
+            }
+            osszeg() {
+                return this.szam1 + this.szam2 + this.szam3
+            }
+        }
+
+
+
+        let dobasok, rand1, rand2, rand3
+
+        function joe() {
+            dobasok = []
+            let a = +document.getElementById('adat').value
+            console.log(a)
+            for (let i = 0; i < a; i++) {
+                rand1 = Math.floor(Math.random() * 6) + 1
+                rand2 = Math.floor(Math.random() * 6) + 1
+                rand3 = Math.floor(Math.random() * 6) + 1
+                // let obj =[szam1:rand1,szam2:rand2,szam3:rand3] ha nem lenne osztályunk
+                dobasok.push(new Dobas(rand1, rand2, rand3))
+            }
+            console.log(dobasok)
+            render()
+        }
+
+        
+        function render() {
+            let str=''
+            for(let i of dobasok){
+                console.log(i)
+                str+=`<div class="border border-primary p-2 m-1">
+                        <i class="fa-solid fa-dice-${tomb[i.szam1]} fa-2x"></i>
+                        <i class="fa-solid fa-dice-${tomb[i.szam2]} fa-2x"></i>
+                        <i class="fa-solid fa-dice-${tomb[i.szam3]} fa-2x"></i>
+                    </div>`
+            }
+            console.log(str)
+            document.querySelector('.dice-holder').innerHTML = str
+        }
+
+    </script>
+
+</body>
+
+</html>
