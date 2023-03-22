@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Melyik ország fővárosa?</h3>
+        <h1 class="" id="kerd"></h1>
+        <input type="text" id="val">
+        <button class="ell" onclick="gomb()">ellenőrzés</button>
+        <h2 id="gg"></h2>
+        <button class="uj" onclick="uj()">Új játék</button>
+        
+    </div>
+
+
+
+    <script src="orszagok_fovarosok.js"></script>
+    <script>
+        //console.log(adatok)
+        //console.log(adatok[20])
+        //console.log(adatok[20].orszag)
+        uj()
+
+        
+
+        function gomb(){
+            if(document.getElementById("val").value ==`${adatok[random].orszag}`){
+                document.getElementById("gg").innerHTML=`Ügyes vagy!`
+            }else{
+                document.getElementById("gg").innerHTML=`Ez nem jött össze!`
+            }
+
+        }
+
+        function uj(){
+            let random = Math.floor(Math.random()*46)+1
+            console.log(random)
+            document.getElementById("kerd").innerHTML=`${adatok[random].fovaros}`
+            console.log(adatok[random].fovaros)
+
+        }
+        
+    </script>
+</body>
+</html>

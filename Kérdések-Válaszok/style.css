@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fruktur&display=swap');
+
+.container{
+    max-width: 1000px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(179,168,40);
+}
+body{
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    border: solid 1px rgb(179,168,40);
+    box-shadow: 5px 10px 18px rgb(179,168,40);
+    border-radius: 5px;
+    width: 700px;
+    text-align: center;
+}

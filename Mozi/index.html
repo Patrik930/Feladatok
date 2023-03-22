@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mozi.css">
+    <title>Mozi</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <button id="joe" onclick="szam()">Foglalt székek száma</button>
+    <button id="joe" onclick="bevetel()">Bevétel</button>
+    <h1 id="foglalt"></h1>
+    <h2 id="bevetel"></h2>
+
+    <script src="classes.js"></script>
+    <script>
+        let terem = new Terem();
+
+        terem.initialize(1,5,7500)
+        terem.initialize(6,10,5900)
+        terem.initialize(11,15,4500)
+
+        console.log(terem.helyek)
+        let str=`<div class="sor">`
+        for(let obj of terem.helyek){
+            str+=`<div class="szek" id=${obj.id} onclick="foglalas(this)">${obj.x}</div>`
+            if(obj.x == 24){
+                str+=`<b>${obj.ar}</b></div><div class="sor">`
+            }
+        }
+        document.querySelector('.container').innerHTML=str
+
+        function foglalas(domObj){
+            console.log(domObj)
+            let text="Foglalni szeretnéd?"
+            if(confirm(text)){
+                domObj.style.backgroundColor="red"
+                terem.helyek[domObj.id].free=false
+                console.log("Foglalt székek száma: ",terem.foglalt())
+            }
+        }
+        console.log(terem.helyek)
+        function szam(){
+            document.getElementById("foglalt").innerHTML =`Foglalt székek száma: ${terem.foglalt()}`
+        }
+       
+        
+        
+    </script>
+</body>
+
+</html>

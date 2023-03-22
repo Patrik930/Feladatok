@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Akasztófa játék</h3>
+        <svg class="figure-container">
+            <!-- akasztófa -->
+            <line x1="20" x2="100" y1="230" y2="230"/>
+            <line x1="60" x2="60" y1="20" y2="230"/>
+            <line x1="60" x2="140" y1="20" y2="20"/>
+            <line x1="140" x2="140" y1="20" y2="50"/>
+            <!-- #fej 1. hiba -->
+            <circle class="figure" id="1" cx="140" cy="70" r="20"/>
+            <!-- #test 2. hiba -->
+            <line class="figure" id="2" x1="140" x2="140" y1="90" y2="150"/>
+            <!-- #bal kar 3. hiba -->
+            <line class="figure" id="3"  x1="140" x2="120" y1="120" y2="100"/>
+            <!-- #jobb kar 4. hiba -->
+            <line class="figure" id="4" x1="140" x2="160" y1="120" y2="100"/>
+            <!-- #jobb láb 5. hiba -->
+            <line class="figure" id="5" x1="140" x2="160" y1="150" y2="180"/>
+            <!-- #bal láb 6. hiba -->
+            <line class="figure" id="6" x1="140" x2="120" y1="150" y2="180"/>
+        </svg>
+        <div class="letters-holder" onclick="handleClick(event)"></div>
+        <div class ="secret-word"></div>
+        <div class="msg"></div>
+    </div>
+    <script src="data (1).js"></script>
+    <script>
+            let str="";
+            for(i=0; i <abc.length; i++ ) {
+                console.log(abc[i])
+                str+= `<span class="letters">${abc[i]}</span>`
+            }
+            document.querySelector('.letters-holder').innerHTML= str
+
+            //fg mely egy véletlen elemet kisorsol a tömbből:
+            function randomWord(arr){
+                const randIndex = Math.floor(Math.random()*arr.length)
+                return arr[randIndex]
+            }
+
+            //fg ami kap egy tömböt és megjeleníti az elemeit az oldalon egy tárolóban:
+            function showWordStatus(arr,className){
+                document.querySelector(className).innerHTML = arr.map(char=>`<span>${char}</span>`).join('');
+            }
+
+
+            //console.log(randomWord(words))
+
+            //inicializáljuk a játékot
+
+            let secretWord = randomWord(words)
+            console.log(secretWord)
+            let letters = secretWord.split('')
+            console.log(letters)
+            let errors  =  0
+            let wordStatus = letters.map(char=>'_')
+            console.log(wordStatus)
+            //első látogatáskor meg kell hívni:
+            showWordStatus(wordStatus,'.secret-word')
+
+            //feliratkozunk a click eseményre
+            function handleClick(e) {
+                //console.log(e.target.tagName)
+                if(e.target.tagName == 'SPAN'){
+                    let clickedLetter = e.target.innerText
+                    //console.log(clickedLetter)
+                    let match = false
+                    for(let i in letters){
+                        if(letters[i].toUpperCase() == clickedLetter){
+                            wordStatus[i] = clickedLetter
+                            match = true
+                        }
+                    }
+                    showWordStatus(wordStatus,'.secret-word')
+                    errors = match ? errors : ++errors
+                    if(errors > 0 && errors <=6){
+                        document.getElementById(errors).style.display ="block"
+                    } 
+                    if(errors == 6){
+                        document.querySelector('.msg').innerHTML = "Game over... 😢"
+                        return
+                    }
+                    if(wordStatus.indexOf('_')==-1){
+                        document.querySelector('.msg').innerHTML = 'You win 😀'
+                        return
+                    }
+                    
+                }
+            }
+
+    </script>
+
+</body>
+</html>

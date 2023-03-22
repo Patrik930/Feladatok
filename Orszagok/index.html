@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Országok</title>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Melyik ország fővárosa?</h3>
+        <h1 id="kerdes"></h1>
+        <input type="text" placeholder="Írd be az ország nevét" id="beirt">
+        <input type="button" value="Ellenőrzés" onclick="ell()">
+        <h2 id = "eredmeny"></h2>
+        <input type="button" value="Új" onclick="uj()">
+    </div>
+
+
+
+    <script src="orszagok_fovarosok.js"></script>
+    <script>
+        //console.log(adatok)
+        //console.log(adatok[20])
+        //console.log(adatok[20].fovaros)
+        let rand
+        uj()
+
+        
+        function ell(){
+                console.log(document.getElementById("beirt").value,adatok[rand].orszag)
+                if(document.getElementById("beirt").value == `${adatok[rand].orszag}`){
+                    document.getElementById("eredmeny").innerHTML = 'Helyes válasz!'
+                }else{
+                    document.getElementById("eredmeny").innerHTML = 'Helytelen válasz!'
+                }
+            }
+            
+            function uj(){
+            rand = Math.floor(Math.random() * adatok.length)
+            document.getElementById("kerdes").innerHTML = adatok[rand].fovaros
+        }
+        
+
+
+    </script>
+</body>
+</html>

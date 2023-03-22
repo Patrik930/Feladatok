@@ -1,0 +1,16 @@
+.sor{
+    display: flex;
+    justify-content: center;
+}
+.szek{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    margin: 1px;
+    color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.7rem;
+}

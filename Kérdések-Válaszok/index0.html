@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fruktur&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Kérdések-Válaszok</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Versenyszabályzat</h2>
+
+            <div class=" box mt-5">
+                <p>Milyen segédeszközt lehet használni?<i class=" plus fa-regular fa-square-plus"
+                        onclick="toggle('valasz1')"></i></p>
+                <p id="valasz1" style="display: none;">A versenyen bármilyen
+                    nyomtatott segédanyag használható. Elektronikusan tárolt dokumentumokat nem használhatnak a
+                    versenyzők.
+                    A
+                    használni kívánt segédanyagokról a csapatok gondoskodnak.
+                </p>
+
+            </div>
+            <div class="mb-2"></div>
+
+            <div class=" box mt-5">
+                <p>Hány fordulója van a versenynek?<i class=" plus fa-regular fa-square-plus" onclick="toggle('valasz2')"></i>
+                </p>
+                <p id="valasz2" style="display: none;">A verseny két fordulóban zajlik.</p>
+            </div>
+
+            <div class="mb-2"></div>
+
+            <div class=" box mt-5">
+                <p>Ki jut a döntőbe?<i class=" plus fa-regular fa-square-plus" onclick="toggle('valasz3')"></i></p>
+                <p id="valasz3" style="display: none;"> A döntő fordulóba a regionális fordulón legjobban teljesítő 10
+                    csapat jut. </p>
+            </div>
+
+    </div>
+    <script>
+        function toggle(valaszId) {
+            let valasz = document.getElementById(valaszId);
+            if (valasz.style.display == "none") {
+                valasz.style.display = "block";
+               // document.querySelector(".plus").innerHTML = `<i class="fa-regular fa-square-minus"></i>`
+               document.querySelector(".plus").classList.remove("fa-square-plus");
+               document.querySelector(".plus").classList.add("fa-square-minus");
+                console.log(document.querySelector(".plus").innerHTML)
+            } else {
+                valasz.style.display = "none";
+                document.querySelector(".plus").classList.add("fa-square-plus");
+               document.querySelector(".plus").classList.remove("fa-square-minus");
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
