@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jelzolampa.css">
+    <title>Jelzőlámpa</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="traffic">
+            <svg>
+                <g stroke="black" fill="#256">
+                    <circle cx="110" cy="100" r="75" id="rl" stroke-width="3"></circle>
+                    <circle cx="110" cy="260" r="75" id="yl" stroke-width="3"></circle>
+                    <circle cx="110" cy="420" r="75" id="gl" stroke-width="3"></circle>
+                </g>
+
+            </svg>
+        </div>
+        <div>
+            <button class="button1" id="red" onclick="rl()">Red</button>
+            <button class="button2" id="yellow" onclick="yl()">Yellow</button>
+            <button class="button3" id="green" onclick="gl()">Green</button>
+            <button class="button4" onclick="torles()">Clear</button>
+            <button class="button5">Start</button>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("rl").style.fill = "none";
+        document.getElementById("yl").style.fill = "none";
+        document.getElementById("gl").style.fill = "none";
+
+        function rl() {
+            document.getElementById("rl").style.fill = "red";
+        }
+        function yl() {
+            document.getElementById("yl").style.fill = "yellow";
+        }
+        function gl() {
+            document.getElementById("gl").style.fill = "green";
+        }
+        function torles() {
+            document.getElementById("rl").style.fill = "none";
+            document.getElementById("yl").style.fill = "none";
+            document.getElementById("gl").style.fill = "none";
+        }
+
+        var colors = ["#FF4500", "#656565", "#656565", "#FF4500", "#DAA520", "#656565", "#656565", "#656565", " #ADFF2F", "#656565", "#DAA520", "#656565", "#FF4500", "#656565", "#656565"];
+        
+        var n = 0;
+        
+        function sequence() {
+            document.getElementById("rl").style.fill = colors[n];
+            document.getElementById("yl").style.fill = colors[n + 1];
+            document.getElementById("gl").style.fill = colors[n + 2];
+
+            n += 3;
+            
+            if (n == 15) {
+                n = 3;
+            }
+        }
+
+        setInterval(function () { sequence(); }, 1300);
+
+
+    </script>
+</body>
+
+</html>

@@ -42,3 +42,11 @@
     background-color: blue;
     color: white;
 }
+
+.reset{
+    margin-top: 10px;
+    border: solid black 1px;
+    border-radius: 5px;
+    background-color: yellow;
+    color: black;
+}

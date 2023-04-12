@@ -32,6 +32,7 @@
         <div class="letters-holder" onclick="handleClick(event)"></div>
         <div class ="secret-word"></div>
         <div class="msg"></div>
+        <div class="reset" onclick="reset()">Új játék</div>
     </div>
     <script src="data (1).js"></script>
     <script>
@@ -95,6 +96,20 @@
                         return
                     }
                     
+                }
+            }
+            function reset(){
+                document.querySelector('.msg').innerHTML =''
+                errors  =  0
+                letters = secretWord.split('')
+                secretWord = randomWord(words)
+                wordStatus = letters.map(char=>'_')
+                for(let i = 1; i<=6; i++){
+                    document.getElementById(i).style.display = "none"
+                }
+                showWordStatus(wordStatus, '.secret-word')
+                if(wordStatus.indexOf('_') == -1){
+                    document.querySelector('.letters-holder').disabled = true
                 }
             }
 
