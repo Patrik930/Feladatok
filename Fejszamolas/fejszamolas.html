@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fejszámolás</title>
+    <style>
+        .ok,
+        .bad {
+            visibility: hidden;
+        }
+
+        button {
+            background: linear-gradient(45deg, red, blue);
+            border: 1px solid black;
+            border-radius: 10px;
+            color: white;
+            width: 100px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nr1 {
+            color: blue;
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .nr2 {
+            color: blue;
+            font-size: 2rem;
+            margin-left: 15px;
+        }
+
+        .timer {
+            margin-top: 10px;
+        }
+
+        .timer>svg {
+            width: 200px;
+            height: 200px;
+        }
+
+        .timer>svg>circle {
+            fill: none;
+            stroke: #0d6efd;
+            stroke-width: 10;
+        }
+
+        .timer>svg>circle+circle {
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            stroke-linecap: round;
+            stroke-opacity: 1;
+        }
+
+        .timer.animatable>svg>circle+circle {
+            transition: stroke-dashoffset 0.3s ease;
+        }
+
+        .timer>svg>text {
+            font-size: 2rem;
+        }
+
+        .timer>svg>text+text {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Jó vagy fejszámolásban?</h1>
+            <button onclick="start()">Új számot kérek</button>
+            <div>
+                <span class="nr1" id="nr1">...</span><i class="fa-regular fa-square-plus"></i> <span class="nr2"
+                    id="nr2">...</span> = <input onkeyup="check(this)" type="text" placeholder="Mennyi az összeg?">
+            </div>
+            <div class="time"></div>
+
+            <div class="ok"><i class="fa-solid fa-check fa-beat" style="color: #0ff40b;" font size="200"></i></div>
+            <div class="bad"><i class="fa-solid fa-x fa-beat" style="color: #f20707;" font size="200"></i></div>
+            <div class="timer animatable">
+                <svg>
+                    <circle cx="50%" cy="50%" r="90" />
+                    <circle cx="50%" cy="50%" r="90" pathLength="1" />
+                    <text x="100" y="100" text-anchor="middle">
+                        <tspan id="timeLeft"></tspan>
+                    </text>
+                    <text x="100" y="120" text-anchor="middle">másodperc</text>
+                </svg>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        const randFc = (n) => Math.floor(Math.random() * n)
+
+        let nr1
+        let nr2
+        let timeleft
+        let timer
+        let result
+
+        const start = () => {
+            result = false
+            if (timer) {
+                clearInterval(timer)
+            }
+            document.querySelector('.ok').style.visibility = "hidden"
+            document.querySelector('.bad').style.visibility = "hidden"
+            document.querySelector('input').disabled = false
+            document.querySelector('input').value = ''
+            nr1 = randFc(100)
+            nr2 = randFc(100)
+            document.getElementById("nr1").innerHTML = nr1
+            document.getElementById("nr2").innerHTML = nr2
+            countDown()
+        }
+
+        function countDown() {
+            timeleft = 5
+            timer = setInterval(() => {
+                document.getElementById('timeLeft').innerHTML = timeleft
+                timeleft--
+                if (timeleft >= 0 && result) {
+                    document.querySelector('.ok').style.visibility = "visible"
+                    document.querySelector('input').disabled = true
+                    clearInterval(timer)
+                    return
+                }
+                if (timeleft < 0) {
+                    document.querySelector('.bad').style.visibility = "visible"
+                    document.querySelector('input').disabled = true
+                    clearInterval(timer)
+                    return
+                }
+            }, 1000)
+        }
+
+
+        const check = (domObj) => {
+            //console.log(domObj.value)
+            if (domObj.value == nr1 + nr2) {
+                result = true
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
